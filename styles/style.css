@@ -125,10 +125,14 @@
   content: "";
   transform: scaleX(0);
   opacity: 0.6;
-  transition: opacity 0.5s ease;
+  inline-size: 86%;
+  block-size: 2px;
+  outline-offset: 1px;
+  background-color: var(--accent-color);
   transform-origin: left;
-  transition: transform 0.5s ease;
-  
+  inset-inline-start: 6px;
+  inset-block-start: 16px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .theme-menu__button:focus {
@@ -136,8 +140,6 @@
   opacity: 0.6;
   transition: opacity 0.5s ease;
 }
-
-
 
 .theme-menu__button:focus-visible::after {
   transform: scaleX(1);
@@ -258,9 +260,7 @@
   max-block-size: 38px;
   border: 2px solid var(--accent-color);
   box-shadow: 2px 2px 0 0 transparent;
-  transition: box-shadow 0.5s ease;
-  transition: outline 0.3s ease;
-  transition: color 0.5s;
+  transition: box-shadow 0.5s ease, outline 0.3s ease, color 0.5s;
   padding: 9px 17px;
   cursor: pointer;
   overflow: hidden;
