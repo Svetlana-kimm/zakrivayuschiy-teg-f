@@ -54,12 +54,13 @@
 /* стили состояний сердца */
 
 .like-icon {
-  transform-origin: center;
   max-block-size: 38px;
 }
 
 .like-icon:focus {
   outline: transparent;
+  outline: 2px solid var(--accent-color);
+  transition: border 0.3s ease;
 }
 
 .like-icon:focus-visible {
@@ -102,6 +103,7 @@
 }
 
 .like-icon.is-liked .heart {
+  transform-origin: center;
   animation: heart_animation 0.1s 0.3s ease-in alternate;
 }
 

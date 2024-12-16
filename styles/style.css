@@ -26,6 +26,7 @@
   background-image: var(--bg-gradient);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -239,6 +240,7 @@
   border: transparent;
   transition: outline-color 0.3s ease;
   cursor: pointer;
+  transform-origin: center;
 }
 
 .card__icon-button:focus {
@@ -363,6 +365,9 @@
 .dialog-text {
   line-height: 150%;
   text-transform: uppercase;
+  min-block-size: 63px;
+  max-inline-size: 234px;
+  text-wrap: wrap;
 }
 
 .dialog-button {
