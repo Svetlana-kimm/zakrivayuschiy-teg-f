@@ -59,7 +59,6 @@
 
 .like-icon:focus {
   outline: transparent;
-  outline: 2px solid var(--accent-color);
   transition: border 0.3s ease;
 }
 

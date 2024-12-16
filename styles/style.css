@@ -244,8 +244,8 @@
 }
 
 .card__icon-button:focus {
-  outline: transparent;
   border: transparent;
+  outline: 2px solid var(--accent-color);
 }
 
 .card__icon-button:focus-visible {
