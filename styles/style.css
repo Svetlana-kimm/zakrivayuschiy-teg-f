@@ -16,5 +16,473 @@
 
 .page {
   min-inline-size: 320px;
+  max-inline-size: 1140px;
   min-block-size: 100dvb;
+  font-family: var(--font-main);
+  font-variation-settings: "wght" 400;
+  font-weight: var(--font-w-regular);
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* стили для шапки */
+
+.header {
+  background-color: var(--bg-color);
+  font-family: var(--font-accent);
+  border: 2px solid var(--accent-color);
+  min-inline-size: 375px;
+  max-inline-size: 700px;
+  inline-size: 100vw;
+  margin: 100px 2px;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 14px 25px;
+  gap: 25px;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 49px;
+  line-height: 100%;
+}
+
+.title-description {
+  font-size: 14px;
+  line-height: 100%;
+}
+
+/* стили переключателя тем */
+
+.header__theme-menu {
+  display: grid;
+  justify-self: end;
+  align-self: center;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
+  align-items: flex-start;
+  text-align: left;
+  padding-inline-start: 16px;
+}
+
+.theme-menu__button {
+  position: relative;
+  background-color: transparent;
+  outline: transparent;
+  border: transparent;
+  font-size: 14px;
+  line-height: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: moving_arrow 0.5s alternate ease-in-out infinite;
+  right: 8px;
+  left: -105px;
+}
+
+.theme-menu__button::after {
+  position: absolute;
+  content: "";
+  transform: scaleX(0);
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* стили карточек */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-inline-size: 375px;
+  max-inline-size: 696px;
+}
+
+.main_cards {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color);
+}
+
+.cards-title {
+  font-size: 18px;
+  font-weight: var(--font-w-bold);
+  line-height: 120%;
+  padding: 5px 24px 2px 10px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  font-variation-settings: "slnt" 0;
+}
+
+.card-image {
+  position: relative;
+}
+
+.image-logo {
+  position: absolute;
+  z-index: 1;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  font-weight: var(--font-w-regular);
+  color: var(--accent-color);
+  line-height: 100%;
+  inset-block-start: 25px;
+  inset-inline-end: 11px;
+  mix-blend-mode: hard-light;
+  text-shadow: 0 0 2px var(--bg-color);
+  opacity: 0.5;
+}
+
+@supports (
+  (text-stroke: 1px var(--bg-color)) or
+    (-webkit-text-stroke: 1px var(--bg-color))
+) {
+  .image-logo {
+    text-shadow: 0 0 2px transparent;
+    -webkit-text-stroke: 1px var(--bg-color);
+  }
+}
+
+.image {
+  border: 2px solid var(--accent-color);
+  border-inline: transparent;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.cards-description {
+  margin: 23px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  font-size: 18px;
+  font-weight: var(--font-w-text);
+  line-height: 116%;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  font-variation-settings: "slnt" 0;
+}
+
+/* стили кнопок */
+
+.buttons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 1px 25px 23px 0;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  outline: 2px solid transparent;
+  outline-offset: -4px;
+  border: transparent;
+  transition: outline-color 0.3s ease;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: transparent;
+  border: transparent;
+}
+
+.card__icon-button:focus-visible {
+  outline-color: var(--bg-color);
+}
+
+/* стили кнопки like и ее состояний и др. кнопок */
+
+.button {
+  position: relative;
+  background-color: var(--bg-color);
+  outline: transparent;
+  min-inline-size: 130px;
+  max-block-size: 38px;
+  border: 2px solid var(--accent-color);
+  box-shadow: 2px 2px 0 0 transparent;
+  transition: box-shadow 0.5s ease;
+  transition: outline 0.3s ease;
+  transition: color 0.5s;
+  padding: 9px 17px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: translate 0.5s ease-in-out;
+  background-color: var(--accent-color);
+  translate: -100%;
+}
+
+.button:hover::before {
+  translate: 0%;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  outline: transparent;
+}
+
+.button__text {
+  position: relative;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  font-weight: var(--font-w-regular);
+  color: var(--button-text-color);
+  line-height: 90%;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  z-index: 1;
+  mix-blend-mode: difference;
+  text-wrap: nowrap;
+}
+
+/* стили подвала */
+
+.save-button {
+  max-block-size: 80px;
+  min-inline-size: 302px;
+  margin: 52px 34px 102px 35px;
+  padding: 15px 18.5px 13px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.floppy-icon {
+  position: relative;
+  align-self: center;
+  z-index: 1;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+.footer-floppy {
+  inline-size: 28px;
+  block-size: 28px;
+}
+
+/* диалоговое окно */
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border: 2px solid var(--accent-color);
+  min-block-size: 191px;
+  min-inline-size: 341px;
+  padding: 28px 40px;
+  background-color: var(--bg-color);
+}
+
+.dialog::backdrop {
+  background-color: (rgb(0, 0, 0 / 0.3));
+  backdrop-filter: blur(7px);
+}
+
+.floppy-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.dialog-floppy {
+  block-size: 39px;
+  inline-size: 39px;
+  align-self: center;
+  justify-content: center;
+}
+
+.dialog-text {
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog-button {
+  border: 2px solid var(--accent-color);
+  background-color: transparent;
+  min-inline-size: 257px;
+  padding: 10.5px 112.5px;
+}
+
+/* фильтры */
+
+.img_sprint-fulltrack {
+  filter: blur(2px);
+}
+
+.img_sprint-past {
+  filter: invert(0.3);
+}
+
+.img_sprint-fail {
+  filter: grayscale(100%);
+}
+
+.img_sprint-ideal {
+  filter: hue-rotate(90deg);
+}
+
+.img_sprint-near {
+  filter: sepia(1);
+}
+
+.img_sprint-strategy {
+  filter: saturate(30%);
+}
+
+.img_sprint-despair {
+  filter: grayscale(0.5) brightness(50%);
+}
+
+.img_sprint-present {
+  filter: contrast(150%) brightness(100%);
+}
+
+@media (min-width: 1440px) {
+  /* стили для шапки */
+
+  .header {
+    min-block-size: 364px;
+    margin: 100px 372px;
+  }
+
+  .header-content {
+    padding: 136px 120px 25px;
+    gap: 25px;
+  }
+
+  .title {
+    font-size: 65px;
+    line-height: 100%;
+  }
+
+  .title-description {
+    font-size: 23px;
+    line-height: 100%;
+  }
+
+  /* стили переключателя тем */
+
+  .theme-menu__button:disabled::before {
+    left: -100px;
+  }
+
+  /* стили карточек */
+
+  .cards-title {
+    padding: 4px 24px 4px 10px;
+  }
+
+  .image-logo {
+    inset-inline-end: 24px;
+    inset-block-start: 28px;
+  }
+
+  .cards-description {
+    margin: 25px 24px;
+    line-height: 115%;
+    gap: 28px;
+  }
+
+  .buttons {
+    margin: 0px 25px 23.5px 0;
+  }
+
+  /* стили подвала */
+
+  .save-button {
+    max-block-size: 55px;
+    min-inline-size: 320px;
+    margin: 49px 170px 102px;
+    padding: 15px 19px 15px 19px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-floppy {
+    block-size: 21px;
+    inline-size: 21px;
+  }
+
+  /* диалоговое окно */
+
+  .dialog[open] {
+    min-inline-size: 353px;
+    padding: 28px;
+  }
+
+  .dialog-button {
+    min-inline-size: 293px;
+    padding: 10.5px 132.5px;
+  }
 }

@@ -4,3 +4,64 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+.page.theme-dark {
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+}
+
+.theme-dark {
+  --font-main: "Inter-Variable", sans-serif;
+  --font-accent: "PressStart2P", sans-serif;
+  --font-w-regular: 400;
+  --font-w-bold: 785;
+  --font-w-text: 465;
+  --bg-color: rgba(0, 0, 0, 1);
+  --accent-color: rgba(0, 204, 20, 1);
+  --button-text-color: rgba(0, 204, 20, 1);
+  --themes-menu-color: rgba(0, 204, 20, 0.6);
+  --bg-gradient: repeating-linear-gradient(to right, #000, transparent 2px),
+    repeating-linear-gradient(to bottom, #000, transparent 2px),
+    linear-gradient(#007f0c, #004306);
+}
+
+.page.theme-light {
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+}
+
+.theme-light {
+  --font-main: "Inter-Variable", sans-serif;
+  --font-accent: "PressStart2P", sans-serif;
+  --font-w-regular: 400;
+  --font-w-bold: 700;
+  --font-w-text: 400;
+  --bg-color: rgba(255, 255, 255, 1);
+  --button-text-color: rgba(255, 255, 255, 1);
+  --themes-menu-color: rgba(0, 0, 0, 1);
+  --accent-color: #000;
+  --bg-gradient: repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
+    repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
+    linear-gradient(#e7e7e7, #1a1a1a);
+}
+
+@media (prefers-color-scheme: light) {
+  .page.theme-light {
+    background-color: var(--bg-color);
+    background-image: var(--bg-gradient);
+  }
+
+  .theme-light {
+    --font-main: "Inter-Variable", sans-serif;
+    --font-accent: "PressStart2P", sans-serif;
+    --font-w-regular: 400;
+    --font-w-bold: 700;
+    --font-w-text: 400;
+    --bg-color: rgba(255, 255, 255, 1);
+    --accent-color: #000;
+    --button-text-color: rgba(255, 255, 255, 1);
+    --bg-gradient: repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
+      repeating-linear-gradient(to bottom, #d3d3d3, transparent 2px),
+      linear-gradient(#e7e7e7, #1a1a1a);
+  }
+}
